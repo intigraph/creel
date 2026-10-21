@@ -31,13 +31,13 @@ const VERSION = '0.4.0';
  *   chrome.storage.local.set({ creelOrigins: ['http://localhost:1234'] })
  */
 const DEFAULT_CREEL_ORIGINS = [
-  'https://scbrown.github.io',        // production Pages deployment
+  'https://intigraph.github.io',        // production Pages deployment
   'http://localhost:8420',            // `just serve`
   'http://127.0.0.1:8420',
 ];
 // The Pages deployment serves creel under a path, so that one origin is
 // additionally path-scoped; everything else is a whole origin.
-const PAGES_PREFIX = 'https://scbrown.github.io/creel';
+const PAGES_PREFIX = 'https://intigraph.github.io/creel';
 
 let creelOrigins = new Set(DEFAULT_CREEL_ORIGINS);
 
@@ -57,7 +57,7 @@ function isCreelUrl(url) {
   if (!url) return false;
   let parsed;
   try { parsed = new URL(url); } catch { return false; }
-  if (parsed.origin === 'https://scbrown.github.io') return url.startsWith(PAGES_PREFIX);
+  if (parsed.origin === 'https://intigraph.github.io') return url.startsWith(PAGES_PREFIX);
   return creelOrigins.has(parsed.origin);
 }
 

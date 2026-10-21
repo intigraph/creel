@@ -82,8 +82,8 @@ const check = async (name, fn) => {
     const verdicts = await worker.evaluate((creelOrigin, siteOrigin) => ({
       creel: isCreelUrl(`${creelOrigin}/thread.html`),
       otherPort: isCreelUrl(`${siteOrigin}/site.html`),
-      pages: isCreelUrl('https://scbrown.github.io/creel/thread.html'),
-      pagesOtherPath: isCreelUrl('https://scbrown.github.io/somebody-else/'),
+      pages: isCreelUrl('https://intigraph.github.io/creel/thread.html'),
+      pagesOtherPath: isCreelUrl('https://intigraph.github.io/somebody-else/'),
     }), browser.origin, site);
     assert.strictEqual(verdicts.creel, true, 'creel\'s own port is creel');
     assert.strictEqual(verdicts.otherPort, false, 'another localhost port is a stranger, not creel');
