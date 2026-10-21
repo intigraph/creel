@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" alt="License: Apache-2.0"/></a>
   <img src="https://img.shields.io/badge/status-alpha-C9A227.svg" alt="Status: alpha"/>
   <img src="https://img.shields.io/badge/server-none-3E9E9A.svg" alt="No server"/>
   <img src="https://img.shields.io/badge/sandbox-the%20browser's-E39A4E.svg" alt="Sandbox: the browser's"/>
@@ -216,4 +216,4 @@ shell was chosen 2026-08-13.
 
 ## License
 
-[MIT](LICENSE)
+[Apache-2.0](LICENSE). The vendored OnePagent portions of `app/` remain under the MIT License; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). creel has no releases; all earlier commits were published under the MIT License and remain available under it.
