@@ -15,7 +15,7 @@
     {
       "//": "Chrome match patterns cannot express a port, so these localhost entries necessarily inject the connector into EVERY localhost page. That is why the real gate is the port-aware origin check in background.js (creelOrigins, default :8420) — a dev server on another port is treated as a stranger and cannot command the bridge. host_permissions stays broad so the bridge can ACT on any site; the two axes are independent. Remove the localhost entries for a production-only build.",
       "matches": [
-        "https://scbrown.github.io/creel/*",
+        "https://intigraph.github.io/creel/*",
         "http://localhost/*",
         "http://127.0.0.1/*"
       ],

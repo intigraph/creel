@@ -108,7 +108,7 @@ returns their value.
 
 1. `chrome://extensions` → enable **Developer mode**.
 2. **Load unpacked** → select this `extension/` directory.
-3. Open creel (https://scbrown.github.io/creel/ or your localhost). The
+3. Open creel (https://intigraph.github.io/creel/ or your localhost). The
    `browser` server's toolset expands automatically within a second or two
    — verify with the `browser_status` tool.
 
@@ -119,7 +119,7 @@ necessarily injects the connector into *every* `localhost` page. The real gate
 is therefore the port-aware check in `background.js`, whose default is:
 
 ```
-https://scbrown.github.io/creel   ·   http://localhost:8420   ·   http://127.0.0.1:8420
+https://intigraph.github.io/creel   ·   http://localhost:8420   ·   http://127.0.0.1:8420
 ```
 
 For any other deployment, set it at runtime — this is the supported path, and

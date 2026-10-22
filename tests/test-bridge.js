@@ -116,6 +116,19 @@ const check = async (name, fn) => {
 };
 
 (async () => {
+  await check('transferred Pages deployment can command the bridge and remains protected', async () => {
+    const worker = bootWorker();
+    const canonical = 'https://intigraph.github.io/creel/thread.html';
+    assert.ok((await worker.send('__ops', {}, canonical)).ok);
+    assert.strictEqual((await worker.send('__ops', {}, 'https://intigraph.github.io/another-project/')).ok, false);
+    assert.strictEqual((await worker.send('__ops', {}, 'https://scbrown.github.io/creel/thread.html')).ok, false);
+    assert.strictEqual((await worker.send('__ops', {}, 'http://localhost:8421/')).ok, false);
+    const target = worker.addTab(canonical);
+    assert.strictEqual((await worker.send('navigate', { tabId: target.id, url: canonical })).ok, false);
+    const manifest = JSON.parse(read('extension', 'manifest.json'));
+    assert.ok(manifest.content_scripts.some(entry => entry.matches.includes('https://intigraph.github.io/creel/*')));
+  });
+
   // ── the page half, discovered against the load-order race ────────
   const win = makeWindow();
   const worker = bootWorker();
@@ -284,7 +297,7 @@ const check = async (name, fn) => {
     assert.strictEqual(r.result.version, '0.4.0');
     DEFAULTS = [...r.result.origins];
     assert.deepStrictEqual([...r.result.origins], [...r.result.defaults], 'with no override, the effective list is the defaults');
-    assert.match(r.result.pagesPrefix, /^https:\/\/scbrown\.github\.io\/creel$/);
+    assert.match(r.result.pagesPrefix, /^https:\/\/intigraph\.github\.io\/creel$/);
   });
 
   await check('set_origins normalizes entries to exact origins (incl. port), persisting to storage', async () => {
