@@ -2,6 +2,13 @@
 
 All notable changes land directly on `main`. Format: date, then grouped changes.
 
+## 0.1.0 (2026-10-23)
+
+
+### Features
+
+* add verified static release bundles and release CI ([8d87c84](https://github.com/intigraph/creel/commit/8d87c84ff1c81a70133078cf508c9d555c0b62fc))
+
 ## 2026-08-30
 
 ### The doctor: one preflight answer instead of ten scattered ones (aegis-edp2n.4)
