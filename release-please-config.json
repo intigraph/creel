@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "simple",
+  "include-component-in-tag": false,
+  "bump-minor-pre-major": true,
+  "bootstrap-sha": "6ef91be8e330597358496e2524c4ed741361dad9",
+  "draft": true,
+  "force-tag-creation": true,
+  "packages": {
+    ".": { "package-name": "creel" }
+  }
+}

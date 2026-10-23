@@ -1,0 +1,57 @@
+name: Release static bundle
+
+# Release-please owns draft/tag creation. Dispatch only resumes an existing tag.
+on:
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release-please tag
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: creel-publish-${{ inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RELEASE_TAG: ${{ inputs.tag }}
+    steps:
+      - name: Require canonical release identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = intigraph/creel
+          [[ "$RELEASE_TAG" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: refs/tags/${{ inputs.tag }}
+          fetch-depth: 0
+      - uses: extractions/setup-just@f8a3cce218d9f83db3a2ecd90e41ac3de6cdfd9b # v3
+      - name: Install Chromium
+        id: chrome
+        uses: browser-actions/setup-chrome@48ad923757ca74d66703209fe939badbdf80f2f4 # v2
+      - name: Check and test the release source
+        env:
+          CHROME_PATH: ${{ steps.chrome.outputs.chrome-path }}
+        run: |
+          "$CHROME_PATH" --version
+          just check
+          just test
+      - name: Build immutable static bundle and checksum manifest
+        run: node tools/package-release.js "$RUNNER_TEMP/creel-dist"
+      - name: Verify all draft assets before publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node tools/publish-release.js "$RUNNER_TEMP/creel-dist"

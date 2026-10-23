@@ -178,6 +178,13 @@ record reports the applied `paceRatio` and `windowLength`, allowing host callers
 to reject a probe version that ignored the requested policy. Omit `paceTargets`
 to retain the browser declaration behavior.
 
+## Versioned releases
+
+[Release bundles](RELEASE.md) carry the static app, prebuilt WASM, browser
+extension, license notices and SHA-256 checksums. Pages remains the live demo.
+Release-please prepares a reviewed version PR; its draft is published only after
+all assets have been read back and verified.
+
 ## Tests
 
 `just test` — 202 assertions, no dependencies and no `node_modules`. The fast
@@ -216,4 +223,4 @@ shell was chosen 2026-08-13.
 
 ## License
 
-[Apache-2.0](LICENSE). The vendored OnePagent portions of `app/` remain under the MIT License; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). creel has no releases; all earlier commits were published under the MIT License and remain available under it.
+[Apache-2.0](LICENSE). The vendored OnePagent portions of `app/` remain under the MIT License; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Earlier MIT-licensed commits remain available under that license.
