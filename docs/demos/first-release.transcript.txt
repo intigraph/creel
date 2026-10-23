@@ -1,0 +1,22 @@
+Script started on 2026-10-23 08:55:23-04:00 [COMMAND="bash /tmp/creel-release-demo.vHXGdvaL/run.sh" <not executed on terminal>]
+Target: local source checkout.
+$ git rev-parse HEAD
+0c99af3c0d681ee2cc4d1eedfcdd8f5be1428dcb
+$ probe the release packager at the base revision
+BASE: no versioned bundle packager at 6ef91be8.
+$ node tools/package-release.js <new temporary output>
+{"version":"0.1.0","source_revision":"0c99af3c0d681ee2cc4d1eedfcdd8f5be1428dcb","archive":"creel-v0.1.0.tar.gz","output":"/tmp/creel-bundle-demo.HWxjvaFk/dist"}
+$ sha256sum -c SHA256SUMS
+creel-v0.1.0.provenance.json: OK
+creel-v0.1.0.tar.gz: OK
+$ tar -tzf creel-v0.1.0.tar.gz (selected members)
+creel-v0.1.0/LICENSE
+creel-v0.1.0/THIRD_PARTY_NOTICES.md
+creel-v0.1.0/app/thread.html
+creel-v0.1.0/app/wasm/pkg/creel_quipu_provider_bg.wasm
+creel-v0.1.0/extension/manifest.json
+creel-v0.1.0/version.txt
+$ publisher control: tampered archive, private transport
+PASS: tampered archive refused; transport calls=0
+
+Script done on 2026-10-23 08:55:24-04:00 [COMMAND_EXIT_CODE="0"]

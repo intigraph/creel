@@ -151,6 +151,10 @@ function installFakeGitHub() {
   const browser = await Browser.launch({ root: APP });
   const page = await browser.newPage('/thread.html');
   await page.waitForFunction(() => !!window.CreelState, { message: 'state backend' });
+  // The backend is registered while async storage/history startup is still
+  // running. Wait for its initial conversation before asserting no state changed.
+  await page.waitForFunction(() => typeof activeConvId === 'string' && !!activeConvId
+    && convHistory.some((c) => c.id === activeConvId), { message: 'initial conversation' });
 
   /** Call a state_* tool the way an agent's MCP client would. */
   let callId = 0;
