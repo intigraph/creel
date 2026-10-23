@@ -180,6 +180,9 @@ const check = async (name, fn) => {
   });
 
   await check('ui_tabs discovers both tabs, with roles and agent ids', async () => {
+    // Confirm the real transport is ready before measuring its bounded roster.
+    // A missing peer still fails through the RPC's existing bounded timeout.
+    await alpha.call('ui_describe', { tab: 'bob1' });
     const { tabs } = await alpha.call('ui_tabs');
     assert.strictEqual(tabs.length, 2, `saw ${tabs.length} tabs`);
     assert.strictEqual(tabs[0].self, true);
