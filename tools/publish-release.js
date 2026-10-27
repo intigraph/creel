@@ -43,7 +43,11 @@ function publishRelease(output, identity, run = gh) {
     if (api('commits/' + identity.tag).sha !== identity.revision) throw new Error('remote release tag moved or names another source');
   };
   const view = () => {
-    const release = api('releases/tags/' + identity.tag);
+    // releases/tags/<tag> never returns drafts, so find the draft in the full list.
+    const found = run(['api', 'repos/' + REPOSITORY + '/releases', '--paginate',
+      '--jq', '.[] | select(.tag_name == "' + identity.tag + '")']).trim();
+    if (!found) throw new Error('no release found for ' + identity.tag);
+    const release = JSON.parse(found);
     if (release.tag_name !== identity.tag || !Number.isInteger(release.id)
         || typeof release.draft !== 'boolean' || !Array.isArray(release.assets)
         || release.assets.length > names.length
