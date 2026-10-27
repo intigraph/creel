@@ -45,6 +45,8 @@ function transport(output, revision, options = {}) {
     if (args[0] === 'api') {
       assert(args[1].startsWith('repos/intigraph/creel/'));
       if (args[1].includes('/commits/')) return JSON.stringify({ sha: state.revision });
+      assert.deepEqual(args.slice(1), ['repos/intigraph/creel/releases', '--paginate',
+        '--jq', '.[] | select(.tag_name == "v0.1.0")']);
       if (options.missingRelease) throw new Error('no existing draft');
       return JSON.stringify(snapshot());
     }
