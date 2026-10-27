@@ -2,6 +2,13 @@
 
 All notable changes land directly on `main`. Format: date, then grouped changes.
 
+## [0.1.1](https://github.com/intigraph/creel/compare/v0.1.0...v0.1.1) (2026-10-27)
+
+
+### Bug Fixes
+
+* **release:** find draft releases by listing, not get-by-tag ([#11](https://github.com/intigraph/creel/issues/11)) ([fc071b6](https://github.com/intigraph/creel/commit/fc071b652e118041e797ddb7598d4ad263e71f35))
+
 ## 0.1.0 (2026-10-23)
 
 
