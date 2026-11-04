@@ -1,0 +1,47 @@
+name: Static release installer
+
+on:
+  pull_request:
+    paths: [install.sh, tests/test_installer.py, .github/workflows/install.yml]
+  push:
+    branches: [main]
+    paths: [install.sh, tests/test_installer.py, .github/workflows/install.yml]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: install-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-15, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Installer refusal controls
+        run: python3 -m unittest discover -s tests -p test_installer.py -v
+      - name: Install the existing published static release in a private directory
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PREFIX="$RUNNER_TEMP/creel-install"
+          export VERSION=0.1.1
+          sh install.sh --dry-run
+          test ! -e "$PREFIX"
+          sh install.sh
+          test "$(cat "$PREFIX/releases/v0.1.1/version.txt")" = "$VERSION"
+          test -f "$PREFIX/releases/v0.1.1/app/index.html"
+          test -f "$PREFIX/releases/v0.1.1/extension/manifest.json"
+          if sh install.sh; then
+            echo 'installer overwrote an existing release' >&2
+            exit 1
+          fi
+          test "$(cat "$PREFIX/releases/v0.1.1/version.txt")" = "$VERSION"
