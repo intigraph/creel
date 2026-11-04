@@ -1,0 +1,3 @@
+
+# Preserve terminal CRLF bytes and timing in this small replayable recording.
+docs/demos/static-installer/output.log -text whitespace=-blank-at-eol

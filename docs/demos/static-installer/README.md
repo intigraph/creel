@@ -1,16 +1,17 @@
 # Static installer demonstration
 
-The base has no `install.sh` entrypoint. The candidate adds a static release installer.
-The recorded fixture test installs a private checksummed bundle, prints a manual
-localhost serving command, then refuses to overwrite that same release. Refusal
-controls cover changed checksums, paths/links/duplicates, version/provenance and
-expanded-size bounds. They run the Python payload read from the actual entrypoint,
-with HTTPS responses replaced by in-memory release fixtures. No service, browser
-extension, credential or live release is activated.
+Base `77d3896c7aedc94114c2c370fcdc4a43315e923a` has no `install.sh` entrypoint.
+Installer source `4e07a825da54af19bf2d5a0968bcd5164b9ee100` adds that entrypoint.
+The recording calls the candidate installer against an in-memory release fixture:
+it installs the checksummed static bundle in a fresh private directory, prints its
+manual serving command, refuses a repeated install without changing retained data,
+and rejects a changed archive before writing its new destination.
 
-The recording replays the retained real fixture-test output. It is not a second
-qualification run or a clean-OS installation receipt. Hosted installer jobs test
-the real v0.1.1 bundle separately.
+This is an actual synthetic fixture run. It reads the Python payload from the real
+entrypoint; only HTTPS responses are mocked. Temporary paths are redacted as
+`<private-root>`. No network request, server, browser extension or credentials are
+activated. It is not a clean-OS real-release installation receipt; the separate
+hosted installer workflow checks the actual v0.1.1 bundle.
 
 Download `output.log` and `timing.log`, then run:
 
@@ -18,11 +19,13 @@ Download `output.log` and `timing.log`, then run:
 scriptreplay --log-out output.log --log-timing timing.log
 ```
 
-Reproduce the fixture behavior with:
+Reproduce the visible behavior:
 
 ```sh
-python3 -m unittest discover -s tests -p test_installer.py -v
+python3 docs/demos/static-installer/demo.py
 ```
 
-Demonstrated source is identified by the installer and fixture SHA-256 values in
-`source.json`. The caption and recording are retained with the source proposal.
+The base cannot run the same call because the entrypoint does not exist. The
+installer and fixture SHA-256 values in `source.json` bind the demonstrated code.
+`fixture-output.txt` separately retains the real eight-test qualification output.
+The small recording and caption are retained with this source proposal.
