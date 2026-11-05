@@ -36,31 +36,6 @@ those problems are already solved:
   localStorage, never in the served bundle. It can follow you to another browser, but
   only the long way round: encrypted, opt-in, into a private repo that is yours.
 
-## Quickstart
-
-Install the latest published static bundle (Python 3.9+, no sudo):
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/intigraph/creel/main/install.sh | sh
-```
-
-The installer verifies the release's SHA-256 manifest and provenance before
-extracting into `~/.local/share/creel/releases/v<VERSION>`. It prints the installed
-version and an explicit localhost serving command. It never starts a server,
-enrolls an extension, sets credentials or changes browser state. Existing release
-directories are retained and never overwritten. This is a static app, not a CLI.
-
-For a pinned release or another private destination:
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/intigraph/creel/main/install.sh | VERSION=0.1.1 sh -s -- --prefix "$HOME/apps/creel"
-curl -fsSL https://raw.githubusercontent.com/intigraph/creel/main/install.sh | sh -s -- --dry-run
-```
-
-`--dry-run` checks current release metadata and prints the intended destination;
-it does not download or verify the payload. Checksums detect mismatched downloads;
-they rely on the release publisher and HTTPS, not an independent signing identity.
-
 ## The bet: cheap agents + local knowledge
 
 Frontier-model agents are expensive because each one must *reconstruct context* before
@@ -204,8 +179,6 @@ to reject a probe version that ignored the requested policy. Omit `paceTargets`
 to retain the browser declaration behavior.
 
 ## Versioned releases
-
-See [Quickstart](#quickstart) for the verified static-bundle installer.
 
 [Release bundles](RELEASE.md) carry the static app, prebuilt WASM, browser
 extension, license notices and SHA-256 checksums. Pages remains the live demo.
