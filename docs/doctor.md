@@ -10,7 +10,7 @@ leases, the state repo knew about its token. Nobody assembled them, so the
 operator did it by hand, from memory, differently each time.
 
 The doctor is that assembly. **One record, three readers** — the `doctor_status`
-tool for agents and CABOODLE, `tools/creel-doctor.js` for an installer outside
+tool for agents and Tambo, `tools/creel-doctor.js` for an installer outside
 the browser, and `explain()` for a human — all reading the *same object*, which
 is the discipline `creel-admission` already follows.
 
@@ -118,7 +118,7 @@ inventing a pass for a fleet that has never tried to open anything.
 await window.CreelDoctor.run()                    # the record
 console.log(window.CreelDoctor.explain(record))   # the human block
 
-# as a tool — the CABOODLE preflight boundary
+# as a tool — the Tambo preflight boundary
 doctor_status {}
 
 # outside the browser, for an installer

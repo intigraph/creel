@@ -122,7 +122,7 @@ sends an operator to close tabs that are not the problem.
 
 ## Preflighting from outside the browser
 
-`tools/creel-admission.js` is the probe CABOODLE runs before installing or
+`tools/creel-admission.js` is the probe Tambo runs before installing or
 launching creel (requested on `aegis-7k8xn.4`). It prints the same record and
 exits on it:
 

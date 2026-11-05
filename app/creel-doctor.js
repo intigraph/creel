@@ -1,7 +1,7 @@
 /* creel — app/creel-doctor.js: the preflight, analogous to `st doctor`.
  *
  * Requested on aegis-edp2n.4 (parity with shantytown's doctor) with a consumer
- * contract from CABOODLE on the same bead: a stable, versioned, machine-readable
+ * contract from Tambo on the same bead: a stable, versioned, machine-readable
  * result where every check carries a DURABLE ID, pass/fail/unknown, a
  * required-vs-advisory severity, REDACTED evidence and remediation text — and an
  * aggregate that is nonzero for a required failure or a required unknown.
@@ -78,7 +78,7 @@
        * It gates only WebContainers (app/harness/07-skills.js), so a creel
        * without it is fully working for everything else — a required check
        * would fail a healthy fleet, and a tenth advisory would change the id
-       * list that CABOODLE pins as a contract. Reporting it here costs nothing
+       * list that Tambo pins as a contract. Reporting it here costs nothing
        * and answers the "why did skills refuse?" question at the point someone
        * is already reading the preflight. */
       run: (e) => (typeof e.secureContext !== 'boolean' ? null
@@ -420,7 +420,7 @@
     };
   }
 
-  /** One operator-readable block. The machine record is what CABOODLE reads. */
+  /** One operator-readable block. The machine record is what Tambo reads. */
   function explain(record) {
     const mark = { pass: 'ok  ', fail: 'FAIL', unknown: '??  ' };
     const lines = [
@@ -616,7 +616,7 @@
    * is indistinguishable from reporting health.
    *
    * It is exposed as a tool rather than only a button because the consumer that
-   * asked for it (CABOODLE, aegis-edp2n.4) needs the machine-readable record as
+   * asked for it (Tambo, aegis-edp2n.4) needs the machine-readable record as
    * a preflight boundary: durable per-check ids, pass/fail/unknown, required vs
    * advisory, redacted evidence, remediation, and an aggregate that is nonzero
    * for any required failure OR unknown. That is exactly the `creel.doctor/1`

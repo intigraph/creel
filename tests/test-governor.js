@@ -241,7 +241,7 @@ async function main() {
   ok('drain is allowed under EVERY verdict, including a full provider drain');
 
   // ── the wire record ─────────────────────────────────────────────────
-  // CABOODLE preflights against this, so the shape is a contract and not a
+  // Tambo preflights against this, so the shape is a contract and not a
   // convenience.
   for (const v of [open, drained, stale, inert]) {
     assert.strictEqual(v.contract, 'creel.admission/1');
@@ -257,7 +257,7 @@ async function main() {
   ok('every verdict carries the full versioned record and round-trips as JSON');
 
   // A refusal must never carry a key, a token, or an endpoint. The reason is
-  // read by an operator and by CABOODLE, and one of them logs it.
+  // read by an operator and by Tambo, and one of them logs it.
   const secretish = /sk-|api[_-]?key|x-api-key|Bearer\s|authorization/i;
   for (const v of [open, drained, stale, spent, full]) {
     assert.ok(!secretish.test(v.reason), 'reason must be free of credential-shaped text');

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* creel — tools/creel-doctor.js: the shell boundary for the creel preflight.
  *
- * Requested on aegis-edp2n.4 by CABOODLE: a stable, versioned, machine-readable
+ * Requested on aegis-edp2n.4 by Tambo: a stable, versioned, machine-readable
  * doctor result usable as the Creel preflight/verify boundary, with durable
  * check ids, pass/fail/unknown, required-vs-advisory severity, redacted
  * evidence, remediation text, and an aggregate that is nonzero for a required

@@ -1,4 +1,4 @@
-/* creel — test-admission-probe.js (aegis-edp2n.3): the CABOODLE-facing
+/* creel — test-admission-probe.js (aegis-edp2n.3): the Tambo-facing
  * admission probe. Zero dependencies. Run: node tests/test-admission-probe.js
  *
  * Every case runs the probe as a REAL subprocess and asserts the exit code, not

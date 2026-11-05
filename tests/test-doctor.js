@@ -13,7 +13,7 @@
  *     installer that gets 0 from a blind probe ships anyway.
  *   · THE REDACTION CASE. It asserts a property of the whole serialised record
  *     rather than of one field, because a leak is whatever ends up in the JSON.
- *   · THE ID LIST. Those ids are a contract with CABOODLE. Changing one is a
+ *   · THE ID LIST. Those ids are a contract with Tambo. Changing one is a
  *     breaking change and this test is where that gets noticed.
  */
 'use strict';
@@ -36,7 +36,7 @@ function healthy(extra) {
   }, extra || {});
 }
 
-/* ── the contract CABOODLE consumes ──────────────────────────────────────── */
+/* ── the contract Tambo consumes ──────────────────────────────────────── */
 
 {
   const r = D.evaluate(healthy());
