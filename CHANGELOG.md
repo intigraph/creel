@@ -2,6 +2,13 @@
 
 All notable changes land directly on `main`. Format: date, then grouped changes.
 
+## [0.1.2](https://github.com/intigraph/creel/compare/v0.1.1...v0.1.2) (2026-11-05)
+
+
+### Bug Fixes
+
+* use current stack names and remove legacy tracker exports ([#14](https://github.com/intigraph/creel/issues/14)) ([c49808a](https://github.com/intigraph/creel/commit/c49808a41580a78c375903de92bbf6085cc81c7d))
+
 ## [0.1.1](https://github.com/intigraph/creel/compare/v0.1.0...v0.1.1) (2026-10-27)
 
 
