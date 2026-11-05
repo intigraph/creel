@@ -1,0 +1,13 @@
+test_asset_origin_and_prerelease_refuse (test_installer.InstallerTests.test_asset_origin_and_prerelease_refuse) ... ok
+test_checksum_failure_writes_nothing (test_installer.InstallerTests.test_checksum_failure_writes_nothing) ... ok
+test_dry_run_has_no_files_and_no_payload_download (test_installer.InstallerTests.test_dry_run_has_no_files_and_no_payload_download) ... ok
+test_expansion_limit_is_enforced (test_installer.InstallerTests.test_expansion_limit_is_enforced) ... ok
+test_payload_version_must_match (test_installer.InstallerTests.test_payload_version_must_match) ... ok
+test_pin_and_provenance_are_bound (test_installer.InstallerTests.test_pin_and_provenance_are_bound) ... ok
+test_private_static_install_and_no_clobber (test_installer.InstallerTests.test_private_static_install_and_no_clobber) ... ok
+test_unsafe_members_and_duplicate_refuse (test_installer.InstallerTests.test_unsafe_members_and_duplicate_refuse) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.014s
+
+OK
