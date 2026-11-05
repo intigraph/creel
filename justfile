@@ -72,6 +72,7 @@ test: check
 # Just the fast ones — routing, the bridge handshake, the beads store,
 # device classification and the budget governor, against a DOM stub / temp dir.
 test-unit: check
+    node tests/test-extension-worker.js
     node tests/test-release.js
     node tests/test-beads.js
     node tests/test-device.js
