@@ -20,3 +20,6 @@ wasm/quipu-provider/target/
 # Beads runtime artifacts (local-only)
 .beads.gate.lock
 .beads/.auto-import-issues.jsonl
+
+# Legacy local tracker state is never published.
+/.beads/

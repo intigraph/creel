@@ -51,7 +51,7 @@
   'use strict';
 
   /** The wire contract. Bump only for a breaking change to the record shape:
-   *  CABOODLE preflights a creel install against this and must be able to tell
+   *  Tambo preflights a creel install against this and must be able to tell
    *  a field it does not understand from a field that is missing. */
   const CONTRACT = 'creel.admission/1';
 

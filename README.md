@@ -85,11 +85,11 @@ complement, not compete.
    │  tabs · WASM · BYO key   │        │  sessions · queues · ops │
    └──────┬───────────┬───────┘        └────────────┬─────────────┘
           │           │                             │
-   ┌──────▼─────┐ ┌───▼──────────┐          ┌───────▼────────┐
-   │ quipu-wasm │ │ WASM tools   │          │ bobbin · hank  │
-   │ knowledge  │ │ node · py ·  │          │ code · struct  │
-   │ in-page    │ │ git · sqlite │          │ context        │
-   └────────────┘ └──────────────┘          └────────────────┘
+   ┌──────▼─────┐ ┌───▼──────────┐          ┌───────▼──────────┐
+   │ quipu-wasm │ │ WASM tools   │          │ bobbin · yupana  │
+   │ knowledge  │ │ node · py ·  │          │ code · struct    │
+   │ in-page    │ │ git · sqlite │          │ context          │
+   └────────────┘ └──────────────┘          └──────────────────┘
 ```
 
 ## Nothing here is durable — so there is a door

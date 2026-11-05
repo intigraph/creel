@@ -31,7 +31,7 @@
  * of the doctor and cannot drift from it.
  *
  * The evidence is passed in rather than read off the record because the record
- * deliberately does not carry it — the doctor's contract with CABOODLE is
+ * deliberately does not carry it — the doctor's contract with Tambo is
  * `{contract, at, build, ok, code, summary, checks}` and widening it here would
  * be a breaking change made for a reader's convenience. The caller already
  * holds the evidence; it ran `collect()` to get the record.

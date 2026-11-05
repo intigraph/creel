@@ -145,6 +145,11 @@ const titleThread = (page, title) => page.evaluate((t) => {
   // agent that cannot see the tree cannot check its own work.
 
   await check('a file written into the workspace shows up as a named control', async () => {
+    // Conversation search can start another IndexedDB workspace load after the
+    // selected title is already visible. Finish that load before fixture writes
+    // so its late restore cannot replace the files or directory toggle state.
+    await page.waitForFunction(() => !_switchLoadInFlight,
+      { message: 'selected conversation workspace to finish loading' });
     await page.evaluate(() => {
       vfsWrite('/notes/parser.md', '# parser notes\n');
       vfsWrite('/notes/todo.txt', 'one thing\n');

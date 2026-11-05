@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* creel — tools/creel-admission.js: the admission probe CABOODLE runs before
+/* creel — tools/creel-admission.js: the admission probe Tambo runs before
  * installing or launching creel.
  *
  * Requested on aegis-7k8xn.4 / aegis-edp2n.3: a stable, machine-readable answer
