@@ -78,6 +78,10 @@ const titleThread = (page, title) => page.evaluate((t) => {
   const page = await browser.newPage('/thread.html');
   const ui = uiCall(page);
   await page.waitForFunction(() => !!window.CreelUi && !!window.CreelLocator, { message: 'creel servers' });
+  // Scripts register before async history restoration finishes. Wait before
+  // creating threads, or a late metadata read can replace the fixture list.
+  await page.waitForFunction(() => !!activeConvId && !_switchLoadInFlight,
+    { message: 'initial conversation history to finish loading' });
 
   // ── names that are actually names ────────────────────────────────
 

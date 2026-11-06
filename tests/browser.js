@@ -188,7 +188,7 @@ class Browser {
         await this.send('Runtime.enable', {}, sessionId);
         const page = new Page(this, sessionId, sw.targetId);
         if (!this.extensionManifest) return page;
-        const manifest = await page.evaluate(() => chrome.runtime?.getManifest?.() || null);
+        const manifest = await page.evaluate(() => globalThis.chrome?.runtime?.getManifest?.() || null);
         if (manifest?.name === this.extensionManifest.name && manifest?.version === this.extensionManifest.version) {
           return page;
         }
