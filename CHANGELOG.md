@@ -2,6 +2,18 @@
 
 All notable changes land directly on `main`. Format: date, then grouped changes.
 
+## [0.2.0](https://github.com/intigraph/creel/compare/v0.1.2...v0.2.0) (2026-11-06)
+
+
+### Features
+
+* **install:** add a verified private static-bundle one-liner ([#13](https://github.com/intigraph/creel/issues/13)) ([f6fdd0f](https://github.com/intigraph/creel/commit/f6fdd0f7e5c68fe3490a069584ee6db2859ca7d1))
+
+
+### Bug Fixes
+
+* **install:** restore installer with initialized UI fixtures ([#17](https://github.com/intigraph/creel/issues/17)) ([9e1f60a](https://github.com/intigraph/creel/commit/9e1f60acb86e285de12d4ba4b339fca45ff8cdf8))
+
 ## [0.1.2](https://github.com/intigraph/creel/compare/v0.1.1...v0.1.2) (2026-11-05)
 
 
